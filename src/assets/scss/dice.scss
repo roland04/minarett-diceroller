@@ -1,0 +1,123 @@
+.result {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    &::after {
+        background-size: 40px 40px;
+        display: inline-block;
+        width: 40px; 
+        height: 40px;
+        content:"";
+        margin-top: -4px;
+        margin-left: .2rem;
+    }
+    &.result-hit {
+        &::after {
+            background-image: url(./assets/img/icon-hit.png);
+        }
+    }
+    &.result-block {
+        &::after {
+            background-image: url(./assets/img/icon-block.png);
+        }
+    }
+    &.result-agi {
+        &::after {
+            background-image: url(./assets/img/icon-agi.png);
+            background-size: 25px 40px;
+            width: 25px;
+        }
+    }
+    &.result-man {
+        &::after {
+            background-image: url(./assets/img/icon-man.png);
+        }
+    }
+}
+.roll-history {
+    .result {
+        font-size: 28px; 
+        &::after {
+            background-size: 30px 30px;
+            display: inline-block;
+            width: 30px; 
+            height: 30px;
+            content:"";
+            margin-top: -4px;
+            margin-left: .2rem;
+        }
+        &.result-agi {
+            &::after {
+                background-size: 20px 30px;
+                width: 20px;
+            }
+        }
+    }
+}
+
+.result-dice {
+    overflow: hidden;
+    .face {
+        background-size: contain;
+        background-origin: content-box;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        padding: 2px;
+    }
+    &.rolling {
+        animation-name: rotate;
+        animation-duration: .4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;	
+        visibility: visible !important;			
+    }
+    &.blue {
+        .face-3 {background-image: url(./assets/img/face-hit-man.png);}
+        .face-4 {background-image: url(./assets/img/face-hit-man.png);}
+        .face-5 {background-image: url(./assets/img/face-hit-man.png);}
+        .face-6 {background-image: url(./assets/img/face-agi.png);}
+    }
+    &.green {
+        .face-3 {background-image: url(./assets/img/face-hit-agi.png);}
+        .face-4 {background-image: url(./assets/img/face-hit-agi.png);}
+        .face-5 {background-image: url(./assets/img/face-hit-agi.png);}
+        .face-6 {background-image: url(./assets/img/face-man.png);}
+    }
+    &.white {
+        .face-3 {background-image: url(./assets/img/face-hit.png);}
+        .face-4 {background-image: url(./assets/img/face-hit.png);}
+        .face-5 {background-image: url(./assets/img/face-man.png);}
+        .face-6 {background-image: url(./assets/img/face-agi.png);}
+    }
+    &.red {
+        .face-3 {background-image: url(./assets/img/face-hit.png);}
+        .face-4 {background-image: url(./assets/img/face-hit-hit.png);}
+        .face-5 {background-image: url(./assets/img/face-hit-man.png);}
+        .face-6 {background-image: url(./assets/img/face-hit-agi.png);}
+    }
+    &.black {
+        .face-3 {background-image: url(./assets/img/face-block.png);}
+        .face-4 {background-image: url(./assets/img/face-block.png);}
+    }
+}
+
+@keyframes slideDown {
+	from {transform: translateY(-100%);}
+	to {transform: translateY(0%);}		
+}
+
+@keyframes grow {
+	from {transform: scale(50%);}
+	to {transform: scale(100%);}		
+}
+
+@keyframes flip {
+    from {transform: rotateY( 180deg);}
+    to {transform: rotateY( 0deg);}
+}
+
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(359deg);}
+}

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+@import "./dice.scss";
+
+html {
+  background-color: #e8e8e8;
+}
+
+#app {
+  font-family: 'Cinzel', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  min-height: 450px;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #e8e8e8;
+  color: #1b1b1b;
+  background-image: url(./assets/img/logo.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 13rem;
+}
+
+.modal-fullpage {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 1050;
+  background-color: #e8e8e8;
+}
+
+.btn {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-lg {
+  width: 6rem;
+  height: 6rem;
+}
+
+.btn-dice {
+  display: flex;
+  min-width: 60px;
+  min-height: 60px;
+  color: white;
+  border-radius: 10px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+.result-dice {
+  animation: grow .2s;
+  display: flex;
+  min-width: 40px;
+  min-height: 40px;
+  color: white;
+  border-radius: 7px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+}
+
+.btn-dice:hover {
+  opacity: .8;
+}
+
+.btn-dice,
+.result-dice {
+  &.red { background-color: #ff6961; }
+  &.blue { background-color: #84b6f4; }
+  &.green { background-color: #77dd77; }
+  &.black { background-color: #505050; }
+  &.white {
+    background-color: #f9f9f9;
+    color: #505050;
+    }
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #a2bde6;
+  border-color: #a2bde6;
+}
+
+.btn-dark.disabled,
+.btn-dark:disabled {
+  color: #fff;
+  background-color: #66696d;
+  border-color: #66696d;
+}
