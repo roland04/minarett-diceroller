@@ -4,7 +4,7 @@
   <div class="dice-roller p-3" v-show="!showHistory">
     <!-- Add dice area-->
     <div class="d-flex justify-content-center mb-3">
-      <div role="button" v-for="(dice, index) in diceTypes" :key="index" class="btn-dice m-1" v-bind:class="dice.colour"  @click="addDice(dice.colour)">
+      <div role="button" v-for="(dice, index) in diceTypes" :key="index" class="btn-dice m-1" v-bind:class="dice.colour"  @click="addDice(dice.colour, $event)">
         <span v-if="!showResults && countDice(dice.colour) > 0">{{countDice(dice.colour)}}</span>
         <span v-else-if="!rolling"><fa icon="plus" size="sm"/></span>
       </div>
@@ -76,13 +76,19 @@ export default {
     },
   },
   methods: {
-    addDice(diceColour) {
+    addDice(diceColour, e) {
       if (this.diceRoll.length > 0 && this.showResults) {
         this.resetRoll();
         this.showResults = false;
       }
       if (this.countDice(diceColour) < 15 && !this.rolling) {
         this.diceRoll.push({colour: diceColour, result: null});
+        const diceButton = e.target.closest('.btn-dice');
+        diceButton.classList.remove('animate');
+        diceButton.classList.add('animate');
+        setTimeout(function(){
+          diceButton.classList.remove('animate');
+        },200);
       }
     },
     removeDice(index) {

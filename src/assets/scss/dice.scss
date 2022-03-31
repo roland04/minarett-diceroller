@@ -102,21 +102,6 @@
     }
 }
 
-@keyframes slideDown {
-	from {transform: translateY(-100%);}
-	to {transform: translateY(0%);}		
-}
-
-@keyframes grow {
-	from {transform: scale(50%);}
-	to {transform: scale(100%);}		
-}
-
-@keyframes flip {
-    from {transform: rotateY( 180deg);}
-    to {transform: rotateY( 0deg);}
-}
-
 @keyframes rotate {
     0% {transform: rotate(0deg);}
     100% {transform: rotate(359deg);}
